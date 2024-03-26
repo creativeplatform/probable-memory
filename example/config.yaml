@@ -1,0 +1,56 @@
+name: TC Indexer
+networks:
+- id: 137
+  start_block: 0
+  contracts:
+  - name: creativeMembership
+    address:
+    - 0x64A3328Cf61025720c26dE2a87B6d913fA6e376a
+    handler: src/EventHandlers.ts
+    events:
+    - event: Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
+    - event: ApprovalForAll(address indexed owner, address indexed operator, bool approved)
+    - event: CancelKey(uint256 indexed tokenId, address indexed owner, address indexed sendTo, uint256 refund)
+    - event: EventHooksUpdated(address onKeyPurchaseHook, address onKeyCancelHook, address onValidKeyHook, address onTokenURIHook, address onKeyTransferHook, address onKeyExtendHook, address onKeyGrantHook)
+    - event: ExpirationChanged(uint256 indexed tokenId, uint256 newExpiration, uint256 amount, bool timeAdded)
+    - event: ExpireKey(uint256 indexed tokenId)
+    - event: GasRefundValueChanged(uint256 refundValue)
+    - event: GasRefunded(address indexed receiver, uint256 refundedAmount, address tokenAddress)
+    - event: Initialized(uint8 version)
+    - event: KeyExtended(uint256 indexed tokenId, uint256 newTimestamp)
+    - event: KeyGranterAdded(address indexed account)
+    - event: KeyGranterRemoved(address indexed account)
+    - event: KeyManagerChanged(uint256 indexed _tokenId, address indexed _newManager)
+    - event: KeysMigrated(uint256 updatedRecordsCount)
+    - event: LockConfig(uint256 expirationDuration, uint256 maxNumberOfKeys, uint256 maxKeysPerAcccount)
+    - event: LockManagerAdded(address indexed account)
+    - event: LockManagerRemoved(address indexed account)
+    - event: LockMetadata(string name, string symbol, string baseTokenURI)
+    - event: OwnershipTransferred(address previousOwner, address newOwner)
+    - event: PricingChanged(uint256 oldKeyPrice, uint256 keyPrice, address oldTokenAddress, address tokenAddress)
+    - event: ReferrerFee(address indexed referrer, uint256 fee)
+    - event: RefundPenaltyChanged(uint256 freeTrialLength, uint256 refundPenaltyBasisPoints)
+    - event: RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
+    - event: RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
+    - event: RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
+    - event: Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
+    - event: TransferFeeChanged(uint256 transferFeeBasisPoints)
+    - event: UnlockCallFailed(address indexed lockAddress, address unlockAddress)
+    - event: Withdrawal(address indexed sender, address indexed tokenAddress, address indexed recipient, uint256 amount)
+  - name: managedAccounts
+    address:
+    - 0xE90DebFD907F5B655f22bfC16083E45994d708bE
+    handler: src/EventHandlers.ts
+    events:
+    - event: AccountCreated(address indexed account, address indexed accountAdmin)
+    - event: ContractURIUpdated(string prevURI, string newURI)
+    - event: ExtensionAdded(string indexed name, address indexed implementation, ((string,string,address),(bytes4,string)[]) extension)
+    - event: ExtensionRemoved(string indexed name, ((string,string,address),(bytes4,string)[]) extension)
+    - event: ExtensionReplaced(string indexed name, address indexed implementation, ((string,string,address),(bytes4,string)[]) extension)
+    - event: FunctionDisabled(string indexed name, bytes4 indexed functionSelector, (string,string,address) extMetadata)
+    - event: FunctionEnabled(string indexed name, bytes4 indexed functionSelector, (bytes4,string) extFunction, (string,string,address) extMetadata)
+    - event: RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
+    - event: RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
+    - event: RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
+    - event: SignerAdded(address indexed account, address indexed signer)
+    - event: SignerRemoved(address indexed account, address indexed signer)
